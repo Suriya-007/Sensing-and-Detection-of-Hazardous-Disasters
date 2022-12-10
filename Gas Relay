@@ -1,0 +1,116 @@
+   #define Sensor pin = A2;
+
+   #define relaygas pin = D7;
+
+   #define Motor Pin = D6;
+
+
+
+
+ #define sensorDigital A2
+
+
+
+#define relaygas 7
+
+
+
+#define motor 6
+
+
+
+#define sensoranalog A3
+
+
+
+void setup() {
+
+
+
+  pinMode(sensorDigital, INPUT);
+
+
+
+    pinMode(relaygas, OUTPUT);
+
+
+
+      pinMode(motor, OUTPUT);
+
+
+
+        Serial.begin(9600);
+
+
+
+        }
+
+
+
+        void loop() {
+
+
+
+          bool digital = digitalRead(sensorDigital);
+
+
+
+            int analog = analogRead(sensoranalog);
+
+
+
+  Serial.print("Analog value : ");
+
+
+
+    Serial.print(analog);
+
+
+
+      Serial.print("t");
+
+
+
+        Serial.print("Digital value :");
+
+
+
+          Serial.println(digital);
+
+
+
+  if (digital == 0) {
+
+
+
+      digitalWrite(relaygas, LOW);
+
+        
+
+       digitalWrite(motor, HIGH);
+
+        delay(5000);
+
+        digitalWrite(relaygas, HIGH);
+
+        digitalWrite(motor, LOW);
+
+
+
+            } else {
+ 
+
+
+                digitalWrite(relaygas, HIGH);
+
+
+
+                    digitalWrite(motor, LOW);
+
+
+
+       }
+
+
+
+            }
